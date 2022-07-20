@@ -14,7 +14,7 @@ Output is a Snowflake dashboard, providing insight into the Data Engineering off
 1. Copy into [Snowflake](https://www.snowflake.com/)
 1. Transform using [dbt](https://www.getdbt.com)
 1. Create Snowflake Dashboard
-1. Orchestrate the above a Python script
+1. Orchestrate the above via a Python script
 
 ## Output
 
