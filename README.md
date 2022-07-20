@@ -7,7 +7,7 @@ Output is a Snowflake dashboard, providing insight into the Data Engineering off
 
 ## Architecture
 
-<img src="" width=70% height=70%>
+<img src="https://github.com/mimoyer21/reddit-api-pipeline/blob/main/images/elt_workflow_diagram.jpg" width=70% height=70%>
 
 1. Extract data using [Reddit API](https://www.reddit.com/dev/api/)
 1. Load into [AWS S3](https://aws.amazon.com/s3/)
@@ -18,7 +18,7 @@ Output is a Snowflake dashboard, providing insight into the Data Engineering off
 
 ## Output
 
-[<img src="" width=70% height=70%>](https://app.snowflake.com/us-east-2.aws/uu74728/reddit-r_dataengineering-dash-dEKnsvQr5)
+[<img src="https://github.com/mimoyer21/reddit-api-pipeline/blob/main/images/snowflake-dash.png" width=70% height=70%>](https://app.snowflake.com/us-east-2.aws/uu74728/reddit-r_dataengineering-dash-dEKnsvQr5)
 
 * Final output in form of Snowflake dash (may need permissions to view). Link [here](https://app.snowflake.com/us-east-2.aws/uu74728/reddit-r_dataengineering-dash-dEKnsvQr5).
 
