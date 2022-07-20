@@ -33,13 +33,14 @@ The Python script `reddit_pipeline.py` acts as the orchestrator for this pipelin
 1. `upload_to_snowflake_etl.py` to copy data to Snowflake
 
 This means the full pipeline can be run by simply running the command `python reddit_pipeline.py <output-file-name>` (where <output-file-name> is the name of the CSV to store in S3).
+Each  step of the pipeline can also be run individually if needed with the same approach: `python <name-of-script.py> <output-file-name>`.
 
 **For a production environment, we'd certainly want to use a more advanced implementation for orchestration, such as Airflow.**
 
 ## Configuration
 
 As a best practice, I used a configuration.conf file to store all sensitive info (credentials for AWS, Snowflake, Reddit, etc.). To recreate this pipeline, you
-should do the same, with a `configuration.conf` file in the form of:
+should do the same, with a `configuration.conf` file (and include it in your .gitignore to avoid exposing info) in the form of:
 
     ```
     [aws_config]
