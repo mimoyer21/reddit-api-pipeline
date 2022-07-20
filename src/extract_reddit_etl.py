@@ -83,7 +83,7 @@ def extract_data(posts):
   return extracted_data_df
 
 def transform_basic(df):
-  """Some basic transformation of data. To be refactored at a later point."""
+  """Some basic transformation of data."""
 
   # Convert epoch to UTC
   df['created_utc'] = pd.to_datetime(df['created_utc'],unit='s')
