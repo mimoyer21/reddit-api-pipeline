@@ -1,14 +1,11 @@
-# This maps to the upload_aws_redshift_etl step in example project: https://github.com/ABZ-Aaron/Reddit-API-Pipeline/blob/master/airflow/extraction/upload_aws_redshift_etl.py
-
 import snowflake.connector
-# from snowflake import connector
 import configparser
 import pathlib
 import sys
 from validation import validate_input
 
 """
-Part of DAG. Upload S3 CSV data to Snowflake. Takes one argument of format YYYYMMDD. This is the name of
+Part of Reddit pipeline. Upload S3 CSV data to Snowflake. Takes one argument of format YYYYMMDD. This is the name of
 the file to copy from S3. Script will load data into temporary table in Snowflake, delete
 records with the same post ID from main table, then insert these from temp table (along with new data)
 to main table. This means that if we somehow pick up duplicate records in a new DAG run,
@@ -32,11 +29,8 @@ SNOW_PW = parser.get("snowflake_config", "password")
 SNOW_ACCT = parser.get("snowflake_config", "account")
 BUCKET_NAME = parser.get("aws_config", "bucket_name")
 DATABASE = 'reddit'
-# DATABASE = 'PC_DBT_DB'
 STAGING_SCHEMA = 'staging'
-# STAGING_SCHEMA = 'DBT_MMOYER'
 PROD_SCHEMA = 'prod'
-# PROD_SCHEMA = 'DBT_MMOYER'
 prod_table = f"{PROD_SCHEMA}.r_dataengineering_posts"
 staging_table = f"{STAGING_SCHEMA}.r_dataengineering_posts_staging"
 
@@ -103,7 +97,7 @@ def load_data_into_snowflake(snowflake_conn):
 
         # Commit only at the end, so we won't end up
         # with a temp table and deleted main table if something fails
-        # rs_conn.commit() # FIXME: Commented this line out. By default, autocommit mode is enabled in Snowflake connector. Can figure out how to override to use commit if desired
+        # snowflake_conn.commit() # Commented this line out. By default, autocommit mode is enabled in Snowflake connector. Can figure out how to override to use commit if desired
 
 
 def main():
